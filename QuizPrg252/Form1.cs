@@ -20,7 +20,22 @@ namespace QuizPrg252
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            string path = @"Untitled.txt";
+            try
+            {
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(s);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
